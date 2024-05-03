@@ -1,3 +1,43 @@
 /* 
     General Styles
 */
+/* 
+    General Styles
+*/
+
+
+.home-text{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: 0.5s;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;           
+}
+
+.home-text:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.text-h2{
+    font-size: 42px;
+    color: #ffe100;
+}
+
+.image-wrapper{
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.image-wrapper:hover{
+    border: 1px solid #ffe100;
+}
+
+.active{
+    color: white;
+}
