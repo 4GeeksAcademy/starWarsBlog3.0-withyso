@@ -3,7 +3,7 @@ import { Context } from '../store/appContext'
 import { useParams } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
-const Elements = () => {
+const Types = () => {
     const { store, actions } = useContext(Context);
     const { type } = useParams();
     const [currentPage, setCurrentPage] = useState(1);
@@ -51,4 +51,4 @@ const Elements = () => {
     )
 }
 
-export default Elements
+export default Types
