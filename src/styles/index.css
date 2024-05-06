@@ -14,7 +14,7 @@
     bottom: 0%;
     background: rgba(0,0,0,0.6);
     opacity: 0;
-    transition: 0.5s;
+    transition: 0.6s;
     font-family: "Jersey 25", sans-serif;
     font-weight: 400;           
 }
@@ -22,11 +22,18 @@
 .home-text:hover{
     opacity: 1;
     cursor: pointer;
+    transform: translateY(0);
 }
 
 .text-h2{
     font-size: 42px;
     color: #ffe100;
+    transition: 0.6s;
+    transform: translateY(15px);
+}
+
+.text-h2:hover{
+    transform: translateY(0);
 }
 
 .image-wrapper{

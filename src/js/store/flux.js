@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			species_URL: "https://starwars-visualguide.com/assets/img/categories/species.jpg",
 			starships_URL: "https://starwars-visualguide.com/assets/img/categories/starships.jpg",
 			vehicles_URL: "https://starwars-visualguide.com/assets/img/categories/vehicles.jpg",
-			data: {}
+			data: {},
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -21,7 +21,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadType: (type, page) => {
 				fetch(`${swapiURL}/${type}?page=${page}&limit=10`)
 					.then(response => response.json())
-					.then(data => setStore({ data: data }))
+					.then(data => {
+						setStore({ data: data })
+					})
 					.catch(error => console.error(error))
 			},
 			changeColor: (index, color) => {
