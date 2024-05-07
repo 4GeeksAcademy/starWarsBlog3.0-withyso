@@ -3,6 +3,7 @@ import "../../styles/home.css";
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 
 const Details = () => {
@@ -14,7 +15,11 @@ const Details = () => {
     }, [])
 
     let details = store.dataDetails.properties
-    console.log(details)
+    let arr = Object.keys(details);
+
+    setTimeout(() => {
+        console.log(arr)
+    }, 3000);
 
     return (
         <React.Fragment>
@@ -31,8 +36,12 @@ const Details = () => {
                         <div className="col-sm-10 col-md-8">
                             <div className="card-body ps-4">
                                 <h2 className="card-title fs-1 text-center">{details?.name}</h2>
-                                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p className="card-text"></p>
+
                                 <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                <Link to={`/${params.type}/`}>
+                                    <button className="btn btn-warning"> All {params.type} </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
