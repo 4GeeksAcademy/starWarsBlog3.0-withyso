@@ -7,16 +7,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			starships_URL: "https://starwars-visualguide.com/assets/img/categories/starships.jpg",
 			vehicles_URL: "https://starwars-visualguide.com/assets/img/categories/vehicles.jpg",
 			data: {},
+			dataDetails: {},
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
+			loadDetails: (type, id) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+				const store = getStore();
+				fetch(`https://www.swapi.tech/api/${type}/${id}`)
+					.then(response => response.json())
+					.then(data => {
+						setStore({ dataDetails: data.result })
+					})
+					.catch(error => console.error(error))
 			},
 			loadType: (type, page) => {
 				fetch(`${swapiURL}/${type}?page=${page}&limit=10`)
