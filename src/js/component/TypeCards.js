@@ -3,8 +3,8 @@ import React from 'react'
 const TypeCards = ({ uid, name, type }) => {
     return (
         <React.Fragment>
-            <div className="col-sm-5 col-md-4 col-lg-3 col-xs-10" key={uid}>
-                <div className="card border-0" style={{ width: "10rem;" }}>
+            <div className="col-6 col-md-4 col-lg-3 px-3" key={uid}>
+                <div className="card border-0">
                     <img src={`https://starwars-visualguide.com/assets/img/${type == "people" ? "characters" : type}/${uid}.jpg`} className="card-img-top" alt="..." onError={(event) => {
                         event.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
                         event.onerror = null

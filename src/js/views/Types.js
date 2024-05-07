@@ -51,7 +51,7 @@ const Types = () => {
                     />
                 </div>
                 <div className="container d-flex flex-column mt-4">
-                    <div className="row gx-2 gy-2 justify-content-center">
+                    <div className="row gx-5 gy-4">
                         {arrayOfElements?.map((element) => {
                             return <TypeCards uid={element.uid} name={element.name} type={type} />
                         })}
