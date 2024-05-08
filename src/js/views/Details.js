@@ -14,11 +14,8 @@ const Details = () => {
         actions.loadDetails(params.type, params.id)
     }, [])
 
-    if (!store.dataDetails?.properties) {
-        return <div>Loading...</div>
-    }
-
     let details = store.dataDetails.properties
+    if (!details) return <div>Loading...</div>
     //console.log(arr)
     //console.log(arrvalues)
     let newArr = Object.entries(details)
