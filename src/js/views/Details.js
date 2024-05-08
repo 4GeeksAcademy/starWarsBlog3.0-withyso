@@ -23,6 +23,8 @@ const Details = () => {
     //console.log(arrvalues)
     let newArr = Object.entries(details)
     let keyToExclude = ["name", "homeworld", "url", "pilots", "created", "edited", "people"]
+    let newFilterArr = newArr.filter(([key, _]) => !keyToExclude.includes(key))
+    console.log(newFilterArr)
 
 
     return (
@@ -47,10 +49,7 @@ const Details = () => {
                                     {/* {arr.map((element) => {
                                         return <li>{element}</li>
                                     })} */
-                                        newArr.filter(([key, _]) => !keyToExclude.includes(key))
-                                            .map(([key, value]) => {
-                                                return <li className="p-0 m-0">{key} : {value} </li>
-                                            })
+                                        newFilterArr.map(([key, value]) => <li className="p-0 m-0">{key} : {value} </li>)
                                     }
                                 </ul>
                                 <div className="group d-flex flex-row justify-content-between mt-5">
