@@ -14,13 +14,19 @@ const Details = () => {
         actions.loadDetails(params.type, params.id)
     }, [])
 
+    useEffect(() => {
+
+    }, [store.dataDetails.properties])
+
     if (!store.dataDetails?.properties) {
         return <div>Loading...</div>
     }
 
     let details = store.dataDetails.properties
-    let arr = Object.keys(details);
-    console.log(arr)
+    //console.log(arr)
+    //console.log(arrvalues)
+    let newArr = Object.entries(details)
+    let keyToExclude = ["name", "homeworld", "url"]
 
 
     return (
@@ -38,10 +44,15 @@ const Details = () => {
                         <div className="col-sm-10 col-md-8">
                             <div className="card-body ps-4">
                                 <h2 className="card-title fs-1 text-center">{details?.name}</h2>
-                                <ul className="card-text">
-                                    {arr.map((element) => {
+                                <ul className="card-text" style={{ listStyleType: "none" }}>
+                                    {/* {arr.map((element) => {
                                         return <li>{element}</li>
-                                    })}
+                                    })} */
+                                        newArr.filter(([key, _]) => !keyToExclude.includes(key))
+                                            .map(([key, value]) => {
+                                                return <li>{key} : {value} </li>
+                                            })
+                                    }
                                 </ul>
 
                                 <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
