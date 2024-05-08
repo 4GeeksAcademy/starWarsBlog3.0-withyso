@@ -14,10 +14,6 @@ const Details = () => {
         actions.loadDetails(params.type, params.id)
     }, [])
 
-    useEffect(() => {
-
-    }, [store.dataDetails.properties])
-
     if (!store.dataDetails?.properties) {
         return <div>Loading...</div>
     }
