@@ -26,7 +26,7 @@ const Details = () => {
     //console.log(arr)
     //console.log(arrvalues)
     let newArr = Object.entries(details)
-    let keyToExclude = ["name", "homeworld", "url"]
+    let keyToExclude = ["name", "homeworld", "url", "pilots", "created", "edited", "people"]
 
 
     return (
@@ -39,26 +39,31 @@ const Details = () => {
                 <div className="card mb-3 text-warning bg-dark">
                     <div className="row g-0">
                         <div className="col-sm-2 col-md-4">
-                            <img className="card-img-left" src={`https://starwars-visualguide.com/assets/img/${params.type == "people" ? "characters" : params.type}/${params.id}.jpg`} />
+                            <img className="card-img-left p-2" src={`https://starwars-visualguide.com/assets/img/${params.type == "people" ? "characters" : params.type}/${params.id}.jpg`} onError={(event) => {
+                                event.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
+                                event.onerror = null
+                            }} />
                         </div>
                         <div className="col-sm-10 col-md-8">
-                            <div className="card-body ps-4">
-                                <h2 className="card-title fs-1 text-center">{details?.name}</h2>
+                            <div className="card-body ps-4 d-flex flex-column gap-4">
+                                <h2 className="card-title fs-1">{details?.name}</h2>
                                 <ul className="card-text" style={{ listStyleType: "none" }}>
                                     {/* {arr.map((element) => {
                                         return <li>{element}</li>
                                     })} */
                                         newArr.filter(([key, _]) => !keyToExclude.includes(key))
                                             .map(([key, value]) => {
-                                                return <li>{key} : {value} </li>
+                                                return <li className="p-0 m-0">{key} : {value} </li>
                                             })
                                     }
                                 </ul>
+                                <div className="group d-flex flex-row justify-content-between mt-5">
+                                    <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                                    <Link to={`/${params.type}/`}>
+                                        <button className="btn btn-warning"> All {params.type} </button>
+                                    </Link>
+                                </div>
 
-                                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                                <Link to={`/${params.type}/`}>
-                                    <button className="btn btn-warning"> All {params.type} </button>
-                                </Link>
                             </div>
                         </div>
                     </div>
